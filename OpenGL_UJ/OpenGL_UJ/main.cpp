@@ -1,13 +1,16 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "window.h"
 
 int main(void)
 {
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	/*glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);*/
+	Window mWindow(800, 600, "graphics by uijin");
+	mWindow.CreateWindow();
 	
+	while(!glfwWindowShouldClose(mWindow.getWindow()))
+	{
+		glfwSwapBuffers(mWindow.getWindow());
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
 	return 0;
 }
