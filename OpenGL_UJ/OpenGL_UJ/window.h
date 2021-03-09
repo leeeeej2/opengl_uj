@@ -10,6 +10,8 @@ public:
 	~Window();
 	int CreateWindow();
 	GLFWwindow* getWindow();
+	void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
 private:
 	int width;
 	int height;
